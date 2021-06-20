@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon } from "antd";
+import { YoutubeOutlined } from '@ant-design/icons';
 
 //update and render informed by Devyendu Shekhar at https://hackernoon.com/make-your-own-youtube-player-in-react-using-youtube-data-api-v3-4b9bb5403a87
 
@@ -22,7 +22,7 @@ class VideoDetail extends Component {
       if( !video ) {
           return (
               <div className="VideoFrame">
-                  <h1><Icon type={"youtube"}/></h1>
+                  <h1><YoutubeOutlined/></h1>
               </div>
           )
       }
