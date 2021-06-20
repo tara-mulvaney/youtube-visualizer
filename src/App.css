@@ -1,40 +1,42 @@
 @import ‘~antd/dist/antd.css’;
 
-.App {
+.VideoFrame {
+width: 100vw;
+background: lightgray;
+color: black;
+height: 85vh;
+align-items: center;
+}
+
+.Audio {
+border: solid black;
+display: flex;
+flex-direction: column;
+}
+
+.Controls {
+display: flex;
+justify-content: center;
+color: black;
+}
+
+h1, h2, body {
+  padding-top: 10px;
   text-align: center;
+  background-color: black;
+  color: lightgray;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.VideoDetail {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.SearchBar {
+  align-content: center;
+  text-align: center;
+  background: black;
+  padding: 35px;
+  width: 100vw;
 }
