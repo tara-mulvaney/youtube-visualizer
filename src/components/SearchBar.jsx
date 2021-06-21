@@ -19,6 +19,7 @@ class SearchBar extends Component {
         // console.log('test')
     };
 
+
     render() {
         return(
           <div>
@@ -28,9 +29,9 @@ class SearchBar extends Component {
                     onChange={ this.props.onChange }
                     placeholder="Search Video"
                 >
-                    { this.state.videos.map((video, index)  => <Option key={ index } >{ video.snippet.title }</Option> ) }
+                    { this.state.videos.map((video, index)  => <Option className="AutoComplete" key={ index } >{ video.snippet.title }</Option> ) }
                 </AutoComplete>
-                <Button><SearchOutlined/></Button>
+                <Button className="SearchIcon"><SearchOutlined/></Button>
             </div>
           </div>
         );

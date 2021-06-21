@@ -46,7 +46,6 @@ class App extends Component {
     if( this.state.search ) {
       YTSearch({ key: key, term }, (data) => {
         try {
-          console.log(data);
           this.setState({ videos: data, selectedVideo: data[0] });
           console.log( this.state.videos );
         } catch(err){
@@ -79,7 +78,7 @@ class App extends Component {
     return (
       <div>
         <div>
-          <h1>Fourier Radio <YoutubeOutlined/></h1>
+          <h1>YouTube Player <YoutubeOutlined/></h1>
             <SearchBar
                  videos={ this.state.videos }
                  video={ this.state.selectedVideo }
@@ -89,12 +88,12 @@ class App extends Component {
                    })}
                  }
             />
+            <div className="Controls">
+              <button onClick={this.toggleMicrophone}>
+                {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
+              </button>
+            </div>
             <div className="Audio">
-              <div className="Controls">
-                <button onClick={this.toggleMicrophone}>
-                  {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
-                </button>
-              </div>
               {this.state.audio ? <AudioAnalyzer audio={this.state.audio.sketch} /> : ''}
             </div>
         </div>
