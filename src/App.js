@@ -3,7 +3,6 @@ import './App.css';
 import SearchBar from './components/SearchBar';
 import VideoDetail from './components/VideoDetail';
 import YTSearch from 'youtube-api-search';
-import P5Wrapper from 'react-p5-wrapper';
 import {YoutubeOutlined} from '@ant-design/icons';
 
 const key = process.env.REACT_APP_YOUTUBE_API_KEY;
