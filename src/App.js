@@ -77,7 +77,7 @@ class App extends Component {
     return (
       <div>
         <div>
-          <h1>YouTube Player <YoutubeOutlined/></h1>
+          <h1>YouTube Basic<YoutubeOutlined/></h1>
             <SearchBar
                  videos={ this.state.videos }
                  video={ this.state.selectedVideo }
