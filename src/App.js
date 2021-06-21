@@ -3,7 +3,6 @@ import './App.css';
 import SearchBar from './components/SearchBar';
 import VideoDetail from './components/VideoDetail';
 import YTSearch from 'youtube-api-search';
-import AudioAnalyzer from './components/AudioAnalyzer'
 import P5Wrapper from 'react-p5-wrapper';
 import {YoutubeOutlined} from '@ant-design/icons';
 
@@ -88,14 +87,15 @@ class App extends Component {
                    })}
                  }
             />
-            <div className="Controls">
+            {/* I'm having trouble embedding P5 into React so I'm removing the Visualizer toggle for now.
+               <div className="Controls">
               <button onClick={this.toggleMicrophone}>
-                {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
-              </button>
-            </div>
+               {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
+               </button>
+             </div>
             <div className="Audio">
               {this.state.audio ? <AudioAnalyzer audio={this.state.audio.sketch} /> : ''}
-            </div>
+            </div>*/}
         </div>
         <div className="VideoDetail">
           <VideoDetail video={ this.state.selectedVideo }/>
