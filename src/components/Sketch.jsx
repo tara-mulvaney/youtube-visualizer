@@ -3,7 +3,7 @@ import '../helpers/p5sound-fix.js';
 import 'p5/lib/addons/p5.sound.js';
 import * as p5 from 'p5';
 
-class Sketch extends React.Component {
+class Sketch extends Component {
   constructor(props) {
     super(props)
       this.myRef = React.createRef();
@@ -11,19 +11,18 @@ class Sketch extends React.Component {
 }
 Sketch = (p) => {
 
-    let amp, fft, canvas, dimension, mic, micLevel, context, grad, vol
+    let fft, dimension, mic, canvas
 
 
     p.setup = () => {
         dimension = p.min(p.windowWidth / 1.5, p.windowHeight / 1.5)
         p.angleMode(p5.DEGREES);
-        canvas = p.createCanvas(dimension, dimension)
+        canvas = p.createCanvas(dimension, dimension);
         mic = new p5.AudioIn();
         mic.start(p.userStartAudio);
-        amp = new p5.Amplitude(0.1);
-        fft = new p5.FFT()
+        // let amp = new p5.Amplitude(0.1);
+        fft = new p5.FFT();
         fft.setInput(mic);
-
     }
 
     p.draw = () => {
@@ -54,16 +53,11 @@ Sketch = (p) => {
     }
   }
 
-
     p.windowResized = () => {
         dimension = p.min(p.windowWidth / 1.5, p.windowHeight / 1.5)
         p.resizeCanvas(dimension, dimension)
     }
-
-
-
   }
-
 
 componentDidMount() {
     this.myP5 = new p5(this.Sketch, this.myRef.current)

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import './helpers/p5sound-fix.js';
-import * as p5 from 'p5';
-import P5Wrapper from 'react-p5-wrapper';
 import './App.css';
 import 'p5/lib/addons/p5.sound.js';
 import YTSearch from 'youtube-api-search';
@@ -85,7 +83,7 @@ class App extends Component {
     return (
       <div>
         <div>
-          <h1>YouTube Basic<YoutubeOutlined/></h1>
+          <h1>YouTube Basic <YoutubeOutlined/></h1>
             <div className="Controls">
               <button onClick={this.toggleMicrophone}>
                 {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
