@@ -11,13 +11,13 @@ class Sketch extends Component {
 }
 Sketch = (p) => {
 
-    let fft, dimension, mic, canvas
+    let fft, dimension, mic
 
 
     p.setup = () => {
         dimension = p.min(p.windowWidth / 1.5, p.windowHeight / 1.5)
         p.angleMode(p5.DEGREES);
-        canvas = p.createCanvas(dimension, dimension);
+        p.createCanvas(dimension, dimension);
         mic = new p5.AudioIn();
         mic.start(p.userStartAudio);
         // let amp = new p5.Amplitude(0.1);
@@ -73,7 +73,7 @@ componentWillUnmount() {
 }
 render() {
   return (
-    <div ref={this.myRef}/>
+      <div ref={this.myRef}/>
   )
 }
   }
