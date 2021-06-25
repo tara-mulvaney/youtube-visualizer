@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import  { AutoComplete, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 const Option = AutoComplete.Option;
+
 class SearchBar extends Component {
     state = {
-      videos: []
+      videos: [],
+      input: ''
     };
 
     componentDidUpdate(prevProps) {
@@ -16,9 +18,7 @@ class SearchBar extends Component {
     onSelect = (value, index) => {
         let val = parseInt(index.key, 10);
         this.props.handleSearch(val);
-        // console.log('test')
     };
-
 
     render() {
         return(
@@ -31,7 +31,11 @@ class SearchBar extends Component {
                 >
                     { this.state.videos.map((video, index)  => <Option className="AutoComplete" key={ index } >{ video.snippet.title }</Option> ) }
                 </AutoComplete>
-                <Button className="SearchIcon"><SearchOutlined/></Button>
+                <Button
+                    className="SearchIcon"
+                >
+                <SearchOutlined/>
+                </Button>
             </div>
           </div>
         );

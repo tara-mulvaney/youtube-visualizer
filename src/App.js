@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
+import './helpers/p5sound-fix.js';
+import * as p5 from 'p5';
+import P5Wrapper from 'react-p5-wrapper';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import VideoDetail from './components/VideoDetail';
+import 'p5/lib/addons/p5.sound.js';
 import YTSearch from 'youtube-api-search';
+import SearchBar from './components/SearchBar.jsx';
+import VideoDetail from './components/VideoDetail.jsx';
+import Sketch from './components/Sketch.jsx';
 import {YoutubeOutlined} from '@ant-design/icons';
+
 
 const key = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -56,9 +62,11 @@ class App extends Component {
     }
   }
 
+
   handleChange = (value) => {
     setTimeout( () => {
       if(value === ''){
+        alert('error');
         this.setState({ videos: [], selectedVideo: {} });
         return;
       }
@@ -72,11 +80,17 @@ class App extends Component {
   };
 
 
+
   render() {
     return (
       <div>
         <div>
           <h1>YouTube Basic<YoutubeOutlined/></h1>
+            <div className="Controls">
+              <button onClick={this.toggleMicrophone}>
+                {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
+              </button>
+            </div>
             <SearchBar
                  videos={ this.state.videos }
                  video={ this.state.selectedVideo }
@@ -86,19 +100,16 @@ class App extends Component {
                    })}
                  }
             />
-            {/* I'm having trouble embedding P5 into React so I'm removing the Visualizer toggle for now.
-               <div className="Controls">
-              <button onClick={this.toggleMicrophone}>
-               {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
-               </button>
-             </div>
+
+
+            <div className="VideoDetail">
+              <VideoDetail video={ this.state.selectedVideo }/>
+            </div>
+
             <div className="Audio">
-              {this.state.audio ? <AudioAnalyzer audio={this.state.audio.sketch} /> : ''}
-            </div>*/}
-        </div>
-        <div className="VideoDetail">
-          <VideoDetail video={ this.state.selectedVideo }/>
-        </div>
+              {this.state.audio ? <Sketch audio={this.state.audio} /> : ''}
+            </div>
+          </div>
       </div>
     )
   }

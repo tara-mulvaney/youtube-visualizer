@@ -4,7 +4,7 @@
 width: 100vw;
 background: black;
 color: black;
-height: 50vh;
+height: 35%;
 padding-top: 50px;
 /* align-items: center; */
 /* align-content: center; */
@@ -22,7 +22,7 @@ color: black;
 }
 
 h1, h2, body {
-  padding-top: 10px;
+  /* padding-top: 10px; */
   text-align: center;
   background-color: black;
   color: lightgray;
@@ -41,7 +41,7 @@ h1, h2, body {
   align-content: center;
   text-align: center;
   background: black;
-  padding: 35px;
+  padding: 15px;
   width: 100vw;
 }
 
@@ -61,7 +61,7 @@ display: none;
   align-content: center;
   text-align: center;
   background: black;
-  padding: 35px;
+  padding: 15px;
   width: 100vw;
 }
 
@@ -69,6 +69,6 @@ display: none;
   align-content: center;
   text-align: center;
   background: black;
-  padding: 35px;
+  padding: 15px;
   width: 100vw;
 }
