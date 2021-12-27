@@ -63,12 +63,7 @@ class App extends Component {
 
   handleChange = (value) => {
     setTimeout( () => {
-      if(value === ''){
-        alert('error');
-        this.setState({ videos: [], selectedVideo: {} });
-        return;
-      }
-      if(this.state.search && value.length > 5) {
+      if(this.state.search && value.length >= 5) {
         this.videoSearch(value);
       }
       setTimeout( () => {
@@ -78,14 +73,13 @@ class App extends Component {
   };
 
 
-
   render() {
     return (
       <div>
         <div>
-          <h1>YouTube Basic <YoutubeOutlined/></h1>
+          <h1>YouTube Visualizer <YoutubeOutlined/></h1>
             <div className="Controls">
-              <button onClick={this.toggleMicrophone}>
+              <button className="Toggle" onClick={this.toggleMicrophone}>
                 {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
               </button>
             </div>
@@ -105,7 +99,7 @@ class App extends Component {
             </div>
 
             <div className="Audio">
-              {this.state.audio ? <Sketch audio={this.state.audio} /> : ''}
+              {this.state.audio ? <Sketch className="Sketch" audio={this.state.audio} /> : ''}
             </div>
           </div>
       </div>

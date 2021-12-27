@@ -20,6 +20,15 @@ class SearchBar extends Component {
         this.props.handleSearch(val);
     };
 
+
+  onClick = (value) => {
+    if(this.props.length < 5) {
+      this.props.onChange();
+    } else {
+      alert('please enter a song to search for');
+    }
+  }
+
     render() {
         return(
           <div>
@@ -27,12 +36,14 @@ class SearchBar extends Component {
                 <AutoComplete
                     onSelect={ this.onSelect }
                     onChange={ this.props.onChange }
-                    placeholder="Search Video"
+                    placeholder="Search a Song"
                 >
-                    { this.state.videos.map((video, index)  => <Option className="AutoComplete" key={ index } >{ video.snippet.title }</Option> ) }
+                    { this.state.videos.map((video, index)  => 
+                      <Option className="AutoComplete" key={ index } >{ video.snippet.title }</Option> ) }
                 </AutoComplete>
                 <Button
                     className="SearchIcon"
+                    onClick={ this.onClick }
                 >
                 <SearchOutlined/>
                 </Button>

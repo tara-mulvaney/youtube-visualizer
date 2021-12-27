@@ -1,13 +1,27 @@
 @import ‘~antd/dist/antd.css’;
 
+/* .Wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
+
 .VideoFrame {
 width: 100vw;
-background: black;
+background:black;
 color: black;
 height: 35%;
-padding-top: 50px;
-/* align-items: center; */
-/* align-content: center; */
+padding: 50px 50px 50px 50px;
+align-items: center;
+align-content: center;
+border: 3px solid white;
+}
+
+.Sketch {
+display: flex;
+flex-direction: column;
+justify-content: right;
+
 }
 
 .Audio {
@@ -16,9 +30,32 @@ display: flex;
 flex-direction: column;
 }
 
-.Controls {
-justify-content: center;
-color: black;
+.Toggle, .SearchIcon {
+  transform: scale(1.1);
+  cursor: pointer;
+}  
+
+.Toggle:hover, .SearchIcon:hover {
+  transform: scale(1.1);
+}
+
+.Toggle:hover, .SearchIcon:hover {
+  transform: scale(1.1); 
+  transition: .8s;
+}
+
+.Toggle, .SearchIcon {
+  transform: scale(1); 
+  transition: .8s;
+}
+
+.Toggle, .SearchIcon {
+  transform: scale(1.1); 
+  transition: .8s;
+}
+.Toggle:hover, .SearchIcon:hover {
+  transform: scale(1); 
+  transition: .8s;
 }
 
 h1, h2, body {
@@ -31,7 +68,7 @@ h1, h2, body {
 
 .VideoDetail {
   display: flex;
-  position: relative;
+  position: sticky;
 }
 
 .SearchBar {
@@ -46,6 +83,7 @@ h1, h2, body {
 }
 
 .SearchIcon {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -58,6 +96,9 @@ display: none;
 }
 
 .embed-responsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   align-content: center;
   text-align: center;
   background: black;
