@@ -18,10 +18,11 @@ class App extends Component {
         videos: [],
         search: true,
         selectedVideo: {},
-        audio: null
+        audio: null,
       };
       this.toggleMicrophone = this.toggleMicrophone.bind(this);
 }
+
 
   async getMicrophone() {
     const audio = await navigator.mediaDevices.getUserMedia({
@@ -77,7 +78,7 @@ class App extends Component {
     return (
       <div>
         <div>
-          <h1>YouTube Visualizer <YoutubeOutlined/></h1>
+          <h1 className="Title">YouTube Visualizer <YoutubeOutlined/></h1>
             <div className="Controls">
               <button className="Toggle" onClick={this.toggleMicrophone}>
                 {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
@@ -92,7 +93,6 @@ class App extends Component {
                    })}
                  }
             />
-
 
             <div className="VideoDetail">
               <VideoDetail video={ this.state.selectedVideo }/>
