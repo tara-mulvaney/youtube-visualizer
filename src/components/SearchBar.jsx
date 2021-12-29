@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import  { AutoComplete, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 const Option = AutoComplete.Option;
+// import ProgressBar from './ProgressBar.jsx';
+
 
 class SearchBar extends Component {
     state = {
       videos: [],
-      input: ''
+      input: '',
     };
 
     componentDidUpdate(prevProps) {
@@ -25,7 +27,7 @@ class SearchBar extends Component {
     if(this.props.length < 5) {
       this.props.onChange();
     } else {
-      alert('please enter a song to search for');
+      alert('please enter an artist or song to search for');
     }
   }
 
@@ -36,7 +38,7 @@ class SearchBar extends Component {
                 <AutoComplete
                     onSelect={ this.onSelect }
                     onChange={ this.props.onChange }
-                    placeholder="Search a Song"
+                    placeholder=" Search Artist/Song "
                 >
                     { this.state.videos.map((video, index)  => 
                       <Option className="AutoComplete" key={ index } >{ video.snippet.title }</Option> ) }

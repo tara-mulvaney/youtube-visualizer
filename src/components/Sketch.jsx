@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// import './bubbleart.webp';
 import '../helpers/p5sound-fix.js';
 import 'p5/lib/addons/p5.sound.js';
 import * as p5 from 'p5';
@@ -11,45 +12,66 @@ class Sketch extends Component {
 }
 Sketch = (p) => {
 
-    let fft, dimension, mic
+    let fft, dimension, mic, amp, wave, r, g, b, x, y, rad;
 
+    // p.preload = () => {
+    //   img = p.loadImage('./bubbleart.webp');
+    // }
 
     p.setup = () => {
         dimension = p.min(p.windowWidth / 1.5, p.windowHeight / 1.5)
-        p.angleMode(p5.DEGREES);
+        p.angleMode(p.DEGREES);
+        // p.imageMode(p5.CENTER);
         p.createCanvas(dimension, dimension);
         mic = new p5.AudioIn();
         mic.start(p.userStartAudio);
-        // let amp = new p5.Amplitude(0.1);
+        let amp = new p5.Amplitude(0.1);
         fft = new p5.FFT();
         fft.setInput(mic);
+        let wave = fft.waveform();
+
     }
 
+
+
     p.draw = () => {
-      let vol = mic.getLevel();
+      // p.image(img, dimension, dimension);
       p.background(0);
       p.noFill();
       p.stroke(255);
-      p.ellipse(dimension/2, dimension/2, vol*500, vol*500);
+      p.translate(0, -1, dimension/2, dimension/2);
+
+      let vol = mic.getLevel();
+      let wave = fft.waveform();
+
+      for (let i = 0; i < 1; i ++) {
+        let r = p.map(p.sin(p.frameCount), -1, 1, 100, 255)
+        let g = p.map(i, 0, 20, 100, 255)
+        let b = p.map(p.cos(p.frameCount),-1, 1, 255, 100)
+  
+        p.stroke(r,g,b);
+        
+      p.ellipse(dimension/2, dimension/2, vol*400, vol*400);
       p.ellipse(dimension/2, dimension/2, vol*700, vol*700);
       p.ellipse(dimension/2, dimension/2, vol*1000, vol*1000);
-
-
       p.translate(dimension/2, dimension/2);
-
-      let wave = fft.waveform();
-      for (let t = -1; t<=1; t+=2) {
-      p.beginShape();
-      for (let i = 0; i < 180; i += 1) {
-        let index = p.floor(p.map(i,0,180,0,wave.length - 1))
-
-        let r = p.map(wave[index], -1,1,150,350)
-
-        let x = r * p.sin(i);
-        let y = r * p.cos(i);
-        p.vertex(x/2,y/2)
+      
+      
+      p.beginShape()
+      
+      for (let i = 0; i < 360; i += 0.5) {
+        let index = p.floor(p.map(i, 0, 360, 0, wave.length - 1))
+        
+        let rad = p.map(wave[index], -1, 1, 50, 150)
+        let x = rad * p.sin(i);
+        let y = rad * p.cos(i);
+        p.vertex(x,y);
       }
-      p.endShape();
+     
+
+      
+      
+      p.endShape()
     }
   }
 

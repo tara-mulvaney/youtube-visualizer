@@ -1,12 +1,21 @@
 @import ‘~antd/dist/antd.css’;
 
-
-
 .VideoFrame {
 width: 100vw;
-background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+background-size: 200%;
+background-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+background-position: left;
+transition: background-position 3s;
 height: 35%;
 padding: 50px 50px 50px 50px;
+animation: animatedgradient 15s ease alternate infinite;
+}
+
+.Title:hover,
+.Title:focus {
+background-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+background-clip: text;
+color: transparent;
 }
 
 .VideoFrame h1 {
@@ -14,8 +23,7 @@ padding: 50px 50px 50px 50px;
 }
 
 
-
-@keyframes gradient {
+@keyframes animatedgradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -32,42 +40,21 @@ padding: 50px 50px 50px 50px;
 border: solid black;
 }
 
-.Toggle, .SearchIcon {
-  transform: scale(1.1);
+.Toggle, .gradient-border, .SearchIcon {
   cursor: pointer;
 }  
 
-.Toggle:hover, .SearchIcon:hover {
-  transform: scale(1.1);
-}
-
-.Toggle:hover, .SearchIcon:hover {
-  transform: scale(1.1); 
-  transition: .8s;
-}
-
-.Toggle, .SearchIcon {
-  transform: scale(1); 
-  transition: .8s;
-}
-
-.Toggle, .SearchIcon {
-  transform: scale(1.1); 
-  transition: .8s;
-}
-.Toggle:hover, .SearchIcon:hover {
-  transform: scale(1); 
-  transition: .8s;
+a {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 h1, h2, body {
-  /* padding-top: 10px; */
+  padding: -10px;
   text-align: center;
   background-color: black;
   color: lightgray;
 }
-
-
 
 .VideoDetail {
   display: flex;
@@ -125,4 +112,41 @@ display: none;
   background-color: rgb(62, 122, 235);
   height: 10px;
   border-radius: 1rem;
+  transition: 1s ease;
+  transition-delay: 0.5s;
+}
+
+.gradient-border {
+  --borderWidth: 5px;
+  background: rgb(233, 233, 233);
+  background-position: right;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #6fba82, #07b39b, #1098ad, #5073b8, #a166ab, #ef4e7b, #f37055,  #f79533);
+  background-position: left;
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: gradientborder 3s ease alternate infinite;
+  background-size: 300%;
+}
+
+
+@keyframes gradientborder {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
