@@ -11,6 +11,10 @@ padding: 50px 50px 50px 50px;
 animation: animatedgradient 15s ease alternate infinite;
 }
 
+.Title {
+  padding-bottom: -15px;
+}
+
 .Title:hover,
 .Title:focus {
 background-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
@@ -35,10 +39,13 @@ color: transparent;
 	}
 }
 
-
+.Description {
+  padding-bottom: 10px;
+}
 .Audio {
 border: solid black;
 }
+
 
 .Toggle, .gradient-border, .SearchIcon {
   cursor: pointer;
@@ -47,10 +54,13 @@ border: solid black;
 a {
   text-decoration: none;
   cursor: pointer;
+  /* padding-bottom: 50px 50px 50px 50px; */
+
 }
 
-h1, h2, body {
-  padding: -10px;
+h1, h4, .Description, body {
+  padding-top: -10px;
+  padding-bottom: -10px;
   text-align: center;
   background-color: black;
   color: lightgray;
@@ -68,8 +78,13 @@ h1, h2, body {
   align-content: center;
   text-align: center;
   background: black;
-  padding: 15px;
+  padding: 10px;
   width: 100vw;
+}
+
+.Controls {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .SearchIcon {
@@ -92,7 +107,7 @@ display: none;
   align-content: center;
   text-align: center;
   background: black;
-  padding: 15px;
+  padding: 10px;
   width: 100vw;
 }
 
@@ -100,7 +115,7 @@ display: none;
   align-content: center;
   text-align: center;
   background: black;
-  padding: 15px;
+  padding: 10px;
   width: 100vw;
 }
 .progress-div {

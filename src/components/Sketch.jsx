@@ -51,13 +51,17 @@ Sketch = (p) => {
   
         p.stroke(r,g,b);
         
-      p.ellipse(dimension/2, dimension/2, vol*400, vol*400);
-      p.ellipse(dimension/2, dimension/2, vol*700, vol*700);
-      p.ellipse(dimension/2, dimension/2, vol*1000, vol*1000);
-      p.translate(dimension/2, dimension/2);
+      // p.ellipse(dimension/2, dimension/2, vol*400, vol*400);
+      // p.ellipse(dimension/2, dimension/2, vol*700, vol*700);
+      // p.ellipse(dimension/2, dimension/2, vol*1000, vol*1000);
+      // p.translate(dimension/2, dimension/2);
       
       
       p.beginShape()
+      p.ellipse(dimension/2, dimension/2, vol*10, vol*10);
+      p.ellipse(dimension/2, dimension/2, vol*50, vol*50);
+      p.ellipse(dimension/2, dimension/2, vol*100, vol*100);
+      p.translate(dimension/2, dimension/2);
       
       for (let i = 0; i < 360; i += 0.5) {
         let index = p.floor(p.map(i, 0, 360, 0, wave.length - 1))

@@ -81,6 +81,7 @@ class App extends Component {
           <a href = "https://youtubebasic.netlify.app/">
           <h1 className="Title" >YouTube Visualizer </h1>
           </a>
+            <div className="Description">Create visualizations with Youtube and a mic</div>
             <div className="Controls">
               <button className="Toggle, gradient-border" onClick={this.toggleMicrophone}>
                 {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
