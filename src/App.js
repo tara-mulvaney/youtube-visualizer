@@ -6,7 +6,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/SearchBar.jsx';
 import VideoDetail from './components/VideoDetail.jsx';
 import Sketch from './components/Sketch.jsx';
-import {YoutubeOutlined} from '@ant-design/icons';
+// import {YoutubeOutlined} from '@ant-design/icons';
 
 
 const key = process.env.REACT_APP_YOUTUBE_API_KEY;

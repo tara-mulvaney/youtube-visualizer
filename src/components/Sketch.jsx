@@ -12,7 +12,7 @@ class Sketch extends Component {
 }
 Sketch = (p) => {
 
-    let fft, dimension, mic, amp, wave, r, g, b, x, y, rad;
+    let fft, dimension, mic;
 
     // p.preload = () => {
     //   img = p.loadImage('./bubbleart.webp');
