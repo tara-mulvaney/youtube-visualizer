@@ -25,10 +25,10 @@ Sketch = (p) => {
         p.createCanvas(dimension, dimension);
         mic = new p5.AudioIn();
         mic.start(p.userStartAudio);
-        let amp = new p5.Amplitude(0.1);
+        // let amp = new p5.Amplitude(0.1);
         fft = new p5.FFT();
         fft.setInput(mic);
-        let wave = fft.waveform();
+        // let wave = fft.waveform();
 
     }
 
