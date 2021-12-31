@@ -21,18 +21,13 @@ Sketch = (p) => {
     p.setup = () => {
         dimension = p.min(p.windowWidth / 1.5, p.windowHeight / 1.5)
         p.angleMode(p.DEGREES);
-        // p.imageMode(p5.CENTER);
+        // p.imageMode(p.CENTER);
         p.createCanvas(dimension, dimension);
         mic = new p5.AudioIn();
         mic.start(p.userStartAudio);
-        // let amp = new p5.Amplitude(0.1);
         fft = new p5.FFT();
         fft.setInput(mic);
-        // let wave = fft.waveform();
-
     }
-
-
 
     p.draw = () => {
       // p.image(img, dimension, dimension);
@@ -50,17 +45,11 @@ Sketch = (p) => {
         let b = p.map(p.cos(p.frameCount),-1, 1, 255, 100)
   
         p.stroke(r,g,b);
-        
-      // p.ellipse(dimension/2, dimension/2, vol*400, vol*400);
-      // p.ellipse(dimension/2, dimension/2, vol*700, vol*700);
-      // p.ellipse(dimension/2, dimension/2, vol*1000, vol*1000);
-      // p.translate(dimension/2, dimension/2);
-      
       
       p.beginShape()
-      p.ellipse(dimension/2, dimension/2, vol*10, vol*10);
-      p.ellipse(dimension/2, dimension/2, vol*50, vol*50);
-      p.ellipse(dimension/2, dimension/2, vol*100, vol*100);
+      for (let a = 0; a <200; a += 50) {
+        p.ellipse(dimension/2, dimension/2, vol * a)
+      }
       p.translate(dimension/2, dimension/2);
       
       for (let i = 0; i < 360; i += 0.5) {
@@ -71,10 +60,6 @@ Sketch = (p) => {
         let y = rad * p.cos(i);
         p.vertex(x,y);
       }
-     
-
-      
-      
       p.endShape()
     }
   }
