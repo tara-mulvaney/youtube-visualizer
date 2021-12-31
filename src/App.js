@@ -6,6 +6,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/SearchBar.jsx';
 import VideoDetail from './components/VideoDetail.jsx';
 import Sketch from './components/Sketch.jsx';
+// import ErrorBoundary from './components/ErrorBoundary.jsx';
 // import {YoutubeOutlined} from '@ant-design/icons';
 
 
@@ -44,21 +45,20 @@ class App extends Component {
       this.getMicrophone();
     }
   }
-
   videoSearch(term) {
     if( this.state.search ) {
       YTSearch({ key: key, term }, (data) => {
         try {
+          console.log(data);
           this.setState({ videos: data, selectedVideo: data[0] });
-          console.log( this.state.videos );
         } catch(err){
           alert('error')({
           message: "Exceeded Daily Limit",
           description: "Exceeded YouTube Unit Daily Limit",
-          })
-        }
+          }) 
+          } 
       });
-    }
+    } 
   }
 
 
@@ -68,7 +68,7 @@ class App extends Component {
         this.videoSearch(value);
       }
       setTimeout( () => {
-        this.setState({ search: true });
+        this.setState({ search: false });
       }, 3000);
     }, 1500);
   };
@@ -78,15 +78,10 @@ class App extends Component {
     return (
       <div>
         <div>
-          <a href = "https://youtubebasic.netlify.app/">
+          <a href = "https://youtubevisualizer.netlify.app/">
           <h1 className="Title" >YouTube Visualizer </h1>
           </a>
             <div className="Description">Create visualizations with Youtube and a mic</div>
-            <div className="Controls">
-              <button className="Toggle, gradient-border" onClick={this.toggleMicrophone}>
-                {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
-              </button>
-            </div>
             <SearchBar
                  videos={ this.state.videos }
                  video={ this.state.selectedVideo }
@@ -96,11 +91,14 @@ class App extends Component {
                    })}
                  }
             />
-
+            <div className="Controls">
+              <button className="Toggle, gradient-border" onClick={this.toggleMicrophone}>
+                {this.state.audio ? 'Stop Visualizer' : 'Initiate Visualizer'}
+              </button>
+            </div>
             <div className="VideoDetail">
               <VideoDetail video={ this.state.selectedVideo }/>
             </div>
-
             <div className="Audio">
               {this.state.audio ? <Sketch className="Sketch" audio={this.state.audio} /> : ''}
             </div>
